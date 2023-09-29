@@ -94,6 +94,7 @@ public class Home extends AppCompatActivity {
 
         //hello this is Huawei
         //Hello this is MSI
+        //File Path
 
         //Fullscreen beyond punch hole camera
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
