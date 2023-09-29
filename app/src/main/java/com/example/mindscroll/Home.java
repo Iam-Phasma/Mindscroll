@@ -92,6 +92,8 @@ public class Home extends AppCompatActivity {
 
         setContentView(R.layout.activity_home);
 
+        //hello
+
         //Fullscreen beyond punch hole camera
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             getWindow().getAttributes().layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
