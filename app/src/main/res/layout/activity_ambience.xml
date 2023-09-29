@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollviewMusic"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        tools:context=".ambience">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="-14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            app:srcCompat="@drawable/notesbg" />
+
+        <ImageButton
+            android:id="@+id/btnSea"
+            android:layout_width="336dp"
+            android:layout_height="117dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView12"
+            app:srcCompat="@drawable/musicholder" />
+
+        <ImageButton
+            android:id="@+id/btnNature"
+            android:layout_width="336dp"
+            android:layout_height="116dp"
+            android:layout_marginTop="88dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnSea"
+            app:srcCompat="@drawable/musicholder" />
+
+        <ImageButton
+            android:id="@+id/btnCity"
+            android:layout_width="336dp"
+            android:layout_height="116dp"
+            android:layout_marginTop="88dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnNature"
+            app:srcCompat="@drawable/musicholder" />
+
+        <ImageButton
+            android:id="@+id/btnDance"
+            android:layout_width="336dp"
+            android:layout_height="116dp"
+            android:layout_marginTop="88dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnCity"
+            app:srcCompat="@drawable/musicholder" />
+
+        <ImageButton
+            android:id="@+id/btnThunder"
+            android:layout_width="336dp"
+            android:layout_height="116dp"
+            android:layout_marginTop="88dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnDance"
+            app:srcCompat="@drawable/musicholder" />
+
+        <ImageButton
+            android:id="@+id/btnBlizzard"
+            android:layout_width="336dp"
+            android:layout_height="116dp"
+            android:layout_marginTop="88dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnThunder"
+            app:srcCompat="@drawable/musicholder" />
+
+        <ImageButton
+            android:id="@+id/btnWildWest"
+            android:layout_width="336dp"
+            android:layout_height="116dp"
+            android:layout_marginTop="88dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="fitCenter"
+            android:scrollbars="none"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnBlizzard"
+            app:srcCompat="@drawable/musicholder" />
+
+        <ImageView
+            android:id="@+id/imgviewSurf"
+            android:layout_width="44dp"
+            android:layout_height="41dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnSea"
+            app:layout_constraintEnd_toEndOf="@+id/btnSea"
+            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintStart_toStartOf="@+id/btnSea"
+            app:layout_constraintTop_toTopOf="@+id/btnSea"
+            app:layout_constraintVertical_bias="0.48"
+            app:srcCompat="@drawable/surf" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/viga"
+            android:lineSpacingExtra="12sp"
+            android:text="Vibe"
+            android:textColor="#FFFFFF"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/viga"
+            android:text="Ambience Music"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-14dp"
+            android:fontFamily="@font/calibriregular"
+            android:text="Listen and Meditate with"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+        <TextView
+            android:id="@+id/textView17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="97dp"
+            android:layout_marginEnd="31dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Deep dive and surf the dream"
+            android:textColor="#373737"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnSea"
+            app:layout_constraintEnd_toEndOf="@+id/btnSea"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/btnSea"
+            app:layout_constraintTop_toTopOf="@+id/btnSea"
+            app:layout_constraintVertical_bias="0.373" />
+
+        <TextView
+            android:id="@+id/textView25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/calibribold"
+            android:text="Harmonizing with the wild"
+            android:textAlignment="textStart"
+            android:textColor="#373737"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnNature"
+            app:layout_constraintEnd_toEndOf="@+id/btnNature"
+            app:layout_constraintHorizontal_bias="0.532"
+            app:layout_constraintStart_toStartOf="@+id/btnNature"
+            app:layout_constraintTop_toTopOf="@+id/btnNature"
+            app:layout_constraintVertical_bias="0.397" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/calibribold"
+            android:text="Concrete jungle urban acoustic"
+            android:textAlignment="textStart"
+            android:textColor="#373737"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnCity"
+            app:layout_constraintEnd_toEndOf="@+id/btnCity"
+            app:layout_constraintHorizontal_bias="0.621"
+            app:layout_constraintStart_toStartOf="@+id/btnCity"
+            app:layout_constraintTop_toTopOf="@+id/btnCity"
+            app:layout_constraintVertical_bias="0.377" />
+
+        <TextView
+            android:id="@+id/textView30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/calibribold"
+            android:text="Follow the echoes of the past"
+            android:textAlignment="textStart"
+            android:textColor="#373737"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnDance"
+            app:layout_constraintEnd_toEndOf="@+id/btnDance"
+            app:layout_constraintHorizontal_bias="0.595"
+            app:layout_constraintStart_toStartOf="@+id/btnDance"
+            app:layout_constraintTop_toTopOf="@+id/btnDance"
+            app:layout_constraintVertical_bias="0.387" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="98dp"
+            android:layout_marginTop="39dp"
+            android:layout_marginEnd="90dp"
+            android:layout_marginBottom="59dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Rumbling Reverberations"
+            android:textAlignment="textStart"
+            android:textColor="#373737"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnThunder"
+            app:layout_constraintEnd_toEndOf="@+id/btnThunder"
+            app:layout_constraintStart_toStartOf="@+id/btnThunder"
+            app:layout_constraintTop_toTopOf="@+id/btnThunder" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="96dp"
+            android:layout_marginTop="37dp"
+            android:layout_marginEnd="77dp"
+            android:layout_marginBottom="61dp"
+            android:fontFamily="@font/calibribold"
+            android:text="The sound of silent serenity"
+            android:textAlignment="textStart"
+            android:textColor="#373737"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnBlizzard"
+            app:layout_constraintEnd_toEndOf="@+id/btnBlizzard"
+            app:layout_constraintStart_toStartOf="@+id/btnBlizzard"
+            app:layout_constraintTop_toTopOf="@+id/btnBlizzard" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="98dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginEnd="133dp"
+            android:layout_marginBottom="60dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Riding the rhythm"
+            android:textAlignment="textStart"
+            android:textColor="#373737"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnWildWest"
+            app:layout_constraintEnd_toEndOf="@+id/btnWildWest"
+            app:layout_constraintStart_toStartOf="@+id/btnWildWest"
+            app:layout_constraintTop_toTopOf="@+id/btnWildWest" />
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="97dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="31dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Relaxing ocean sounds and soothing waves"
+            android:textColor="#6E6E6E"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnSea"
+            app:layout_constraintEnd_toEndOf="@+id/btnSea"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/btnSea"
+            app:layout_constraintTop_toTopOf="@+id/btnSea"
+            app:layout_constraintVertical_bias="0.555" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/calibribold"
+            android:text="The art of listening to nature and animals"
+            android:textColor="#6E6E6E"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnNature"
+            app:layout_constraintEnd_toEndOf="@+id/btnNature"
+            app:layout_constraintHorizontal_bias="0.586"
+            app:layout_constraintStart_toStartOf="@+id/btnNature"
+            app:layout_constraintTop_toTopOf="@+id/btnNature"
+            app:layout_constraintVertical_bias="0.553" />
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-14dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Symphony within city sounds"
+            android:textColor="#6E6E6E"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnCity"
+            app:layout_constraintEnd_toEndOf="@+id/btnCity"
+            app:layout_constraintHorizontal_bias="0.442"
+            app:layout_constraintStart_toStartOf="@+id/btnCity"
+            app:layout_constraintTop_toTopOf="@+id/btnCity"
+            app:layout_constraintVertical_bias="0.631" />
+
+        <TextView
+            android:id="@+id/textView29"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Rediscovering old music"
+            android:textColor="#6E6E6E"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnDance"
+            app:layout_constraintEnd_toEndOf="@+id/btnDance"
+            app:layout_constraintHorizontal_bias="0.411"
+            app:layout_constraintStart_toStartOf="@+id/btnDance"
+            app:layout_constraintTop_toTopOf="@+id/btnDance"
+            app:layout_constraintVertical_bias="0.533" />
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/calibribold"
+            android:text="The beauty of thunderstorms"
+            android:textColor="#6E6E6E"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnThunder"
+            app:layout_constraintStart_toStartOf="@+id/textView31"
+            app:layout_constraintTop_toTopOf="@+id/btnThunder" />
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Exploring winter's acoustics"
+            android:textColor="#6E6E6E"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnBlizzard"
+            app:layout_constraintStart_toStartOf="@+id/textView32"
+            app:layout_constraintTop_toTopOf="@+id/btnBlizzard" />
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Exploring the sounds of western music"
+            android:textColor="#6E6E6E"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnWildWest"
+            app:layout_constraintStart_toStartOf="@+id/textView33"
+            app:layout_constraintTop_toTopOf="@+id/btnWildWest" />
+
+        <ImageView
+            android:id="@+id/imgviewNature"
+            android:layout_width="41dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnNature"
+            app:layout_constraintEnd_toEndOf="@+id/btnNature"
+            app:layout_constraintHorizontal_bias="0.113"
+            app:layout_constraintStart_toStartOf="@+id/btnNature"
+            app:layout_constraintTop_toTopOf="@+id/btnNature"
+            app:layout_constraintVertical_bias="0.51"
+            app:srcCompat="@drawable/bird" />
+
+        <ImageView
+            android:id="@+id/imgviewCar"
+            android:layout_width="41dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="37dp"
+            android:layout_marginBottom="38dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnCity"
+            app:layout_constraintEnd_toEndOf="@+id/btnCity"
+            app:layout_constraintHorizontal_bias="0.108"
+            app:layout_constraintStart_toStartOf="@+id/btnCity"
+            app:layout_constraintTop_toTopOf="@+id/btnCity"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/car" />
+
+        <ImageView
+            android:id="@+id/imgviewDance"
+            android:layout_width="41dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginBottom="37dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnDance"
+            app:layout_constraintEnd_toEndOf="@+id/btnDance"
+            app:layout_constraintHorizontal_bias="0.111"
+            app:layout_constraintStart_toStartOf="@+id/btnDance"
+            app:layout_constraintTop_toTopOf="@+id/btnDance"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/dance" />
+
+        <ImageView
+            android:id="@+id/imgviewThunder"
+            android:layout_width="41dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="39dp"
+            android:layout_marginBottom="36dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnThunder"
+            app:layout_constraintEnd_toEndOf="@+id/btnThunder"
+            app:layout_constraintHorizontal_bias="0.108"
+            app:layout_constraintStart_toStartOf="@+id/btnThunder"
+            app:layout_constraintTop_toTopOf="@+id/btnThunder"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/thunder" />
+
+        <ImageView
+            android:id="@+id/imgviewBlizzard"
+            android:layout_width="41dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="37dp"
+            android:layout_marginBottom="38dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnBlizzard"
+            app:layout_constraintEnd_toEndOf="@+id/btnBlizzard"
+            app:layout_constraintHorizontal_bias="0.108"
+            app:layout_constraintStart_toStartOf="@+id/btnBlizzard"
+            app:layout_constraintTop_toTopOf="@+id/btnBlizzard"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/snow" />
+
+        <ImageView
+            android:id="@+id/imgviewCowboy"
+            android:layout_width="41dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginBottom="37dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnWildWest"
+            app:layout_constraintEnd_toEndOf="@+id/btnWildWest"
+            app:layout_constraintHorizontal_bias="0.108"
+            app:layout_constraintStart_toStartOf="@+id/btnWildWest"
+            app:layout_constraintTop_toTopOf="@+id/btnWildWest"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/cowboy" />
+
+        <ImageButton
+            android:id="@+id/imgbtnHomeMusic"
+            android:layout_width="60dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginBottom="14dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/btnDance"
+            app:layout_constraintHorizontal_bias="0.389"
+            app:layout_constraintStart_toStartOf="@+id/btnDance"
+            app:layout_constraintTop_toBottomOf="@+id/btnWildWest"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/backmusic" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

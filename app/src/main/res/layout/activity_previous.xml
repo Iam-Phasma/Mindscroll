@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Previous">
+
+        <ImageButton
+            android:id="@+id/imgbtnPrevBack"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="#00FFFFFF"
+            android:contentDescription="menubutton"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toTopOf="@+id/imgViewPrevHello"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/prev_back" />
+
+        <TextView
+            android:id="@+id/tvprevDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/calibriregular"
+            android:text="Day, Month Day Year"
+            android:textColor="#000000"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tvHello"
+            app:layout_constraintTop_toBottomOf="@+id/tvHello">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvPrevName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-14dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Username"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgViewPrevHello"
+            app:layout_constraintStart_toStartOf="@+id/tvHello"
+            app:layout_constraintTop_toBottomOf="@+id/tvHello"
+            app:layout_constraintVertical_bias="0.875">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/tvHello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Hello,"
+            android:textColor="#5CCC57"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgViewPrevHello"
+            app:layout_constraintStart_toEndOf="@+id/imgViewPrevHello"
+            app:layout_constraintTop_toTopOf="@+id/imgViewPrevHello"
+            app:layout_constraintVertical_bias="0.027">
+
+        </TextView>
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="359dp"
+            android:layout_height="584dp"
+            android:layout_marginTop="25dp"
+            android:adjustViewBounds="true"
+            android:backgroundTint="#00FFFFFF"
+            android:padding="0dp"
+            android:scaleType="fitXY"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+            app:layout_constraintStart_toStartOf="@+id/imageButton3"
+            app:layout_constraintTop_toBottomOf="@+id/tvApp3"
+            app:srcCompat="@drawable/bg_cards" />
+
+        <ImageView
+            android:id="@+id/hellogif_bg"
+            android:layout_width="99dp"
+            android:layout_height="114dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imgViewPrevHello"
+            app:layout_constraintEnd_toEndOf="@+id/imgViewPrevHello"
+            app:layout_constraintStart_toStartOf="@+id/imgViewPrevHello"
+            app:layout_constraintTop_toTopOf="@+id/imgViewPrevHello"
+            app:srcCompat="@drawable/hellocircle_bg" />
+
+        <ImageView
+            android:id="@+id/imgViewPrevHello"
+            android:layout_width="64dp"
+            android:layout_height="69dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="64dp"
+            android:clickable="false"
+            android:elevation="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/hello">
+
+        </ImageView>
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="380dp"
+            android:layout_height="109dp"
+            android:layout_marginTop="24dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.516"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvprevDate"
+            app:srcCompat="@drawable/prev_today_green" />
+
+        <ImageButton
+            android:id="@+id/imageButton3"
+            android:layout_width="365dp"
+            android:layout_height="550dp"
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton"
+            app:layout_constraintStart_toStartOf="@+id/imageButton"
+            app:layout_constraintTop_toBottomOf="@+id/textView14"
+            app:srcCompat="@drawable/prev_week_white_long" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="53dp"
+            android:layout_height="17dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Today"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton"
+            app:layout_constraintHorizontal_bias="0.14"
+            app:layout_constraintStart_toStartOf="@+id/imageButton"
+            app:layout_constraintTop_toTopOf="@+id/imageButton"
+            app:layout_constraintVertical_bias="0.293"></TextView>
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="80dp"
+            android:layout_height="17dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Yesterday"
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+            app:layout_constraintHorizontal_bias="0.133"
+            app:layout_constraintStart_toStartOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="@+id/imageButton3"
+            app:layout_constraintVertical_bias="0.046"></TextView>
+
+        <TextView
+            android:id="@+id/tvWakeCountDay1"
+            android:layout_width="47dp"
+            android:layout_height="18dp"
+            android:fontFamily="@font/calibribold"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#6743EE"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgD2ColorIndicator"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+            app:layout_constraintHorizontal_bias="0.562"
+            app:layout_constraintStart_toStartOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="@+id/imgD2ColorIndicator"
+            app:layout_constraintVertical_bias="0.0"></TextView>
+
+        <TextView
+            android:id="@+id/tvWakeCountToday"
+            android:layout_width="47dp"
+            android:layout_height="18dp"
+            android:fontFamily="@font/calibribold"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgD1ColorIndicator"
+            app:layout_constraintStart_toStartOf="@+id/textView15"
+            app:layout_constraintTop_toTopOf="@+id/imgD1ColorIndicator"></TextView>
+
+        <TextView
+            android:id="@+id/tvScreenTimeToday"
+            android:layout_width="80dp"
+            android:layout_height="18dp"
+            android:fontFamily="@font/calibribold"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvWakeCountToday"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton"
+            app:layout_constraintHorizontal_bias="0.833"
+            app:layout_constraintStart_toStartOf="@+id/imageButton"
+            app:layout_constraintTop_toTopOf="@+id/tvWakeCountToday"
+            app:layout_constraintVertical_bias="0.0"></TextView>
+
+        <TextView
+            android:id="@+id/tvWakeCountDay2"
+            android:layout_width="47dp"
+            android:layout_height="18dp"
+            android:fontFamily="@font/calibribold"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#6743EE"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgD3ColorIndicator"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+            app:layout_constraintHorizontal_bias="0.562"
+            app:layout_constraintStart_toStartOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="@+id/imgD3ColorIndicator"></TextView>
+
+        <TextView
+            android:id="@+id/tvWakeCountDay3"
+            android:layout_width="47dp"
+            android:layout_height="18dp"
+            android:fontFamily="@font/calibribold"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#6743EE"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgD4ColorIndicator"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+            app:layout_constraintHorizontal_bias="0.562"
+            app:layout_constraintStart_toStartOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="@+id/imgD4ColorIndicator"></TextView>
+
+        <TextView
+            android:id="@+id/screentimeday4"
+            android:layout_width="0dp"
+            android:layout_height="18dp"
+            android:fontFamily="@font/calibribold"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#6743EE"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgD4ColorIndicator"
+            app:layout_constraintEnd_toEndOf="@+id/screentimeday3"
+            app:layout_constraintHorizontal_bias="0.823"
+            app:layout_constraintStart_toStartOf="@+id/screentimeday3"
+            app:layout_constraintTop_toTopOf="@+id/imgD4ColorIndicator"></TextView>
+
+        <TextView
+            android:id="@+id/tvWakeCountDay4"
+            android:layout_width="47dp"
+            android:layout_height="18dp"
+            android:fontFamily="@font/calibribold"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#6743EE"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgD5ColorIndicator"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+            app:layout_constraintHorizontal_bias="0.562"
+            app:layout_constraintStart_toStartOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="@+id/imgD5ColorIndicator"></TextView>
+
+        <TextView
+            android:id="@+id/screentimeday5"
+            android:layout_width="0dp"
+            android:layout_height="18dp"
+            android:fontFamily="@font/calibribold"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#6743EE"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgD5ColorIndicator"
+            app:layout_constraintEnd_toEndOf="@+id/screentimeday4"
+            app:layout_constraintHorizontal_bias="0.823"
+            app:layout_constraintStart_toStartOf="@+id/screentimeday4"
+            app:layout_constraintTop_toTopOf="@+id/imgD5ColorIndicator"
+            app:layout_constraintVertical_bias="1.0"></TextView>
+
+        <TextView
+            android:id="@+id/tvWakeCountDay5"
+            android:layout_width="47dp"
+            android:layout_height="18dp"
+            android:fontFamily="@font/calibribold"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#6743EE"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgD6ColorIndicator"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+            app:layout_constraintHorizontal_bias="0.562"
+            app:layout_constraintStart_toStartOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="@+id/imgD6ColorIndicator"></TextView>
+
+        <TextView
+            android:id="@+id/screentimeday6"
+            android:layout_width="0dp"
+            android:layout_height="18dp"
+            android:fontFamily="@font/calibribold"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#6743EE"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgD6ColorIndicator"
+            app:layout_constraintEnd_toEndOf="@+id/screentimeday5"
+            app:layout_constraintHorizontal_bias="0.823"
+            app:layout_constraintStart_toStartOf="@+id/screentimeday5"
+            app:layout_constraintTop_toTopOf="@+id/imgD6ColorIndicator"
+            app:layout_constraintVertical_bias="1.0"></TextView>
+
+        <TextView
+            android:id="@+id/tvWakeCountDay6"
+            android:layout_width="47dp"
+            android:layout_height="18dp"
+            android:fontFamily="@font/calibribold"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#6743EE"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgD7ColorIndicator"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+            app:layout_constraintHorizontal_bias="0.562"
+            app:layout_constraintStart_toStartOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="@+id/imgD7ColorIndicator"></TextView>
+
+        <TextView
+            android:id="@+id/screentimeday7"
+            android:layout_width="0dp"
+            android:layout_height="18dp"
+            android:fontFamily="@font/calibribold"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#6743EE"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgD7ColorIndicator"
+            app:layout_constraintEnd_toEndOf="@+id/screentimeday6"
+            app:layout_constraintHorizontal_bias="0.823"
+            app:layout_constraintStart_toStartOf="@+id/screentimeday6"
+            app:layout_constraintTop_toTopOf="@+id/imgD7ColorIndicator"></TextView>
+
+        <TextView
+            android:id="@+id/screentimeday3"
+            android:layout_width="0dp"
+            android:layout_height="18dp"
+            android:fontFamily="@font/calibribold"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#6743EE"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgD3ColorIndicator"
+            app:layout_constraintEnd_toEndOf="@+id/screentimeday2"
+            app:layout_constraintHorizontal_bias="0.823"
+            app:layout_constraintStart_toStartOf="@+id/screentimeday2"
+            app:layout_constraintTop_toTopOf="@+id/imgD3ColorIndicator"
+            app:layout_constraintVertical_bias="0.0"></TextView>
+
+        <TextView
+            android:id="@+id/screentimeday2"
+            android:layout_width="75dp"
+            android:layout_height="18dp"
+            android:fontFamily="@font/calibribold"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#6743EE"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgD2ColorIndicator"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+            app:layout_constraintHorizontal_bias="0.851"
+            app:layout_constraintStart_toStartOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="@+id/imgD2ColorIndicator"
+            app:layout_constraintVertical_bias="0.0"></TextView>
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="156dp"
+            android:layout_height="17dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Record of the past 6 days"
+            android:textAlignment="textStart"
+            android:textColor="#06A095"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.09"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvApp3"></TextView>
+
+        <TextView
+            android:id="@+id/textView24"
+            android:layout_width="156dp"
+            android:layout_height="17dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Your top 3 most used apps"
+            android:textAlignment="textStart"
+            android:textColor="#06A095"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.091"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton"></TextView>
+
+        <TextView
+            android:id="@+id/tvApp1"
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/calibriregular"
+            android:text="App "
+            android:textAlignment="textStart"
+            android:textColor="#333131"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView24"></TextView>
+
+        <TextView
+            android:id="@+id/tvApp2"
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/calibriregular"
+            android:text="App "
+            android:textAlignment="textStart"
+            android:textColor="#333131"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvApp1"></TextView>
+
+        <TextView
+            android:id="@+id/tvApp3"
+            android:layout_width="0dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/calibriregular"
+            android:text="App "
+            android:textAlignment="textStart"
+            android:textColor="#333131"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvApp2"></TextView>
+
+        <TextView
+            android:id="@+id/tvday3"
+            android:layout_width="250dp"
+            android:layout_height="17dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Yesterday"
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+            app:layout_constraintHorizontal_bias="0.33"
+            app:layout_constraintStart_toStartOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="@+id/imageButton3"
+            app:layout_constraintVertical_bias="0.21"></TextView>
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="157dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/calibriregular"
+            android:text="Wake Count         Active Hours"
+            android:textAlignment="textStart"
+            android:textColor="#515151"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.86"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13"></TextView>
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="157dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/calibriregular"
+            android:text="Wake Count           Active Hours"
+            android:textAlignment="textStart"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton"
+            app:layout_constraintHorizontal_bias="0.775"
+            app:layout_constraintStart_toStartOf="@+id/imageButton"
+            app:layout_constraintTop_toTopOf="@+id/textView3"
+            app:layout_constraintVertical_bias="0.6"></TextView>
+
+        <TextView
+            android:id="@+id/tvday4"
+            android:layout_width="250dp"
+            android:layout_height="17dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Yesterday"
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+            app:layout_constraintHorizontal_bias="0.33"
+            app:layout_constraintStart_toStartOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="@+id/imageButton3"
+            app:layout_constraintVertical_bias="0.384"></TextView>
+
+        <TextView
+            android:id="@+id/tvday5"
+            android:layout_width="250dp"
+            android:layout_height="17dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Yesterday"
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+            app:layout_constraintHorizontal_bias="0.33"
+            app:layout_constraintStart_toStartOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="@+id/imageButton3"
+            app:layout_constraintVertical_bias="0.549"></TextView>
+
+        <TextView
+            android:id="@+id/tvday6"
+            android:layout_width="250dp"
+            android:layout_height="17dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Yesterday"
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+            app:layout_constraintHorizontal_bias="0.33"
+            app:layout_constraintStart_toStartOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="@+id/imageButton3"
+            app:layout_constraintVertical_bias="0.714"></TextView>
+
+        <TextView
+            android:id="@+id/tvday7"
+            android:layout_width="250dp"
+            android:layout_height="17dp"
+            android:fontFamily="@font/calibribold"
+            android:text="Yesterday"
+            android:textAlignment="textStart"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton3"
+            app:layout_constraintEnd_toEndOf="@+id/imageButton3"
+            app:layout_constraintHorizontal_bias="0.33"
+            app:layout_constraintStart_toStartOf="@+id/imageButton3"
+            app:layout_constraintTop_toTopOf="@+id/imageButton3"
+            app:layout_constraintVertical_bias="0.874"></TextView>
+
+        <ImageView
+            android:id="@+id/imgD1ColorIndicator"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="12dp"
+            android:background="#00ECE5E5"
+            app:layout_constraintEnd_toEndOf="@+id/textView3"
+            app:layout_constraintHorizontal_bias="0.48"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            app:srcCompat="@drawable/home_greenindicator" />
+
+        <ImageView
+            android:id="@+id/imgD2ColorIndicator"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/textView6"
+            app:layout_constraintHorizontal_bias="0.166"
+            app:layout_constraintStart_toStartOf="@+id/textView6"
+            app:layout_constraintTop_toBottomOf="@+id/textView6"
+            app:srcCompat="@drawable/home_greenindicator" />
+
+        <ImageView
+            android:id="@+id/imgD3ColorIndicator"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/tvday3"
+            app:layout_constraintHorizontal_bias="0.043"
+            app:layout_constraintStart_toStartOf="@+id/tvday3"
+            app:layout_constraintTop_toBottomOf="@+id/tvday3"
+            app:srcCompat="@drawable/home_greenindicator" />
+
+        <ImageView
+            android:id="@+id/imgD4ColorIndicator"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/tvday4"
+            app:layout_constraintHorizontal_bias="0.043"
+            app:layout_constraintStart_toStartOf="@+id/tvday4"
+            app:layout_constraintTop_toBottomOf="@+id/tvday4"
+            app:srcCompat="@drawable/home_greenindicator" />
+
+        <ImageView
+            android:id="@+id/imgD5ColorIndicator"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/tvday5"
+            app:layout_constraintHorizontal_bias="0.043"
+            app:layout_constraintStart_toStartOf="@+id/tvday5"
+            app:layout_constraintTop_toBottomOf="@+id/tvday5"
+            app:srcCompat="@drawable/home_greenindicator" />
+
+        <ImageView
+            android:id="@+id/imgD6ColorIndicator"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/tvday6"
+            app:layout_constraintHorizontal_bias="0.043"
+            app:layout_constraintStart_toStartOf="@+id/tvday6"
+            app:layout_constraintTop_toBottomOf="@+id/tvday6"
+            app:srcCompat="@drawable/home_greenindicator" />
+
+        <ImageView
+            android:id="@+id/imgD7ColorIndicator"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="@+id/tvday7"
+            app:layout_constraintHorizontal_bias="0.043"
+            app:layout_constraintStart_toStartOf="@+id/tvday7"
+            app:layout_constraintTop_toBottomOf="@+id/tvday7"
+            app:srcCompat="@drawable/home_greenindicator" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
+

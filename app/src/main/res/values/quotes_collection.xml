@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="QuotesList">
+
+        <item>"Our smartphones have become a digital extension of ourselves."</item>
+        <item>"A smartphone can be both a blessing and a curse."</item>
+        <item>"With a smartphone in hand, the world is at your fingertips."</item>
+        <item>"The more we use our smartphones, the more they seem to use us."</item>
+        <item>"A smartphone is a powerful tool, use it wisely."</item>
+        <item>"In a world of constant connection, our smartphones keep us tethered."</item>
+        <item>"The convenience of a smartphone can sometimes make us forget the value of face-to-face interactions."</item>
+        <item>"Smartphones have changed the way we communicate, for better or for worse."</item>
+        <item>"Our smartphones may be smart, but it's up to us to be even smarter with how we use them."</item>
+        <item>"With great power (of a smartphone) comes great responsibility."</item>
+
+        <item>The average person checks their smartphone over 100 times a day.</item>
+        <item>The world first smartphone, the IBM Simon, was introduced in 1993 and cost $899.</item>
+        <item>The average lifespan of a smartphone is about 2-3 years.</item>
+        <item>Over 85% of smartphone users check their devices while speaking with friends and family.</item>
+        <item>The word "selfie" was added to the Oxford English Dictionary in 2013, thanks to the rise of smartphone cameras.</item>
+        <item>The iPhone is the best-selling smartphone brand of all time, with over 2.2 billion units sold.</item>
+        <item>In Japan, it is considered rude to talk on your smartphone on public transportation.</item>
+        <item>The average person spends over 4 hours a day on their smartphone.</item>
+        <item>More people now access the internet on their smartphones than on desktop computers.</item>
+        <item>The world most expensive smartphone, the Falcon Supernova iPhone 6 Pink Diamond, sold for $48.5 million in 2019.</item>
+
+        <item>Take frequent breaks and look away from the screen every 20 minutes.</item>
+        <item>Adjust the brightness and contrast of your smartphone to reduce eye strain.</item>
+        <item>Use the 20-20-20 rule: look at an object 20 feet away for 20 seconds every 20 minutes.</item>
+        <item>Increase the font size on your smartphone to reduce the strain on your eyes.</item>
+        <item>Avoid using your smartphone in dark environments to prevent eye fatigue.</item>
+        <item>Use anti-glare screen protectors to reduce the amount of blue light emitted by your smartphone.</item>
+        <item>Blink frequently to keep your eyes moisturized and prevent dryness.</item>
+        <item>Hold your smartphone at a comfortable distance from your eyes to prevent eye strain.</item>
+        <item>Get regular eye exams to ensure that your eyes are healthy and functioning properly.</item>
+        <item>If you experience persistent eye discomfort, see an eye doctor for advice and treatment.</item>
+
+        <item>Take frequent breaks and avoid prolonged use of your smartphone.</item>
+        <item>Hold your smartphone at a comfortable distance from your eyes to prevent eye strain.</item>
+        <item>Practice good posture and avoid hunching over your smartphone for extended periods of time.</item>
+        <item>Reduce your screen time before bedtime to promote better sleep quality.</item>
+        <item>Use your smartphones "night mode" feature to reduce blue light emission at night.</item>
+        <item>Disable notifications from unnecessary or distracting apps to reduce stress and improve focus.</item>
+        <item>Avoid using your smartphone while driving or engaging in other hazardous activities.</item>
+        <item>Use apps that promote healthy habits, such as exercise, meditation, or stress management.</item>
+        <item>Set limits on your smartphone use and stick to them to avoid addiction or overuse.</item>
+        <item>Take advantage of the many tools and resources available on your smartphone to improve your mental and physical health, such as fitness tracking, nutrition apps, and mental health resources.</item>
+
+    </string-array>
+
+</resources>
