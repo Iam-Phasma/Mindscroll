@@ -92,7 +92,7 @@ public class Home extends AppCompatActivity {
 
         setContentView(R.layout.activity_home);
 
-        //hello
+        //hello this is Huawei
 
         //Fullscreen beyond punch hole camera
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
