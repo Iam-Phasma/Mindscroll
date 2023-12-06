@@ -1,8 +1,5 @@
 package com.example.mindscroll;
 
-import static com.google.android.material.internal.ViewUtils.hideKeyboard;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.ByteArrayOutputStream;
@@ -28,8 +25,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.util.Base64;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -47,33 +42,23 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
-
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
-import android.content.Context;
-import android.graphics.Color;
-
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 public class Home extends AppCompatActivity {
-
     private static final int PICK_IMAGE = 1;
     private ImageView imgviewProfile;
     private static final String PREFS_NAME = "MyPrefs";
     private static final String PROFILE_IMAGE_KEY = "profileImage";
-
     Button BtnPrevStats;
     private boolean backPressedOnce = false;
     TextView TvName;
-
     ImageButton BtnTrivia;
     Dialog dlg;
-    EditText ETNameHome;
-
     private static final int PERMISSION_REQUEST_CODE = 1;
     int contextNotif;
 
@@ -92,18 +77,12 @@ public class Home extends AppCompatActivity {
 
         setContentView(R.layout.activity_home);
 
-        //hello this is Huawei
-        //Hello this is MSI
-        //File Path
-
         //Fullscreen beyond punch hole camera
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             getWindow().getAttributes().layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
         }
 
-        // Set the background to a drawable resource
         getWindow().setBackgroundDrawableResource(R.drawable.wallrift);
-
 
         //Setting GIFs
         ImageView ImgViewCoffee = findViewById(R.id.imgviewCoffee);
@@ -118,52 +97,31 @@ public class Home extends AppCompatActivity {
 
         //Button Info
         ImageButton BtnAppInfo = findViewById(R.id.btnAppInfo);
-        BtnAppInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Screen Monitoring Application Developed by Madonza Ricson Jay.", Toast.LENGTH_SHORT).show();
-            }
-        });
-
+        BtnAppInfo.setOnClickListener(v -> Toast.makeText(getApplicationContext(), "Screen Monitoring Application.", Toast.LENGTH_SHORT).show());
 
         // Changing Image Profile
         imgviewProfile = findViewById(R.id.imgviewProfile);
-        imgviewProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Start an intent to launch the gallery
-                Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(intent, PICK_IMAGE);
-            }
+        imgviewProfile.setOnClickListener(v -> {
+            // Start an intent to launch the gallery
+            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(intent, PICK_IMAGE);
         });
 
         ImageButton ImgBtmBoardCoffee = findViewById(R.id.imgbtnBoardCoffee);
-        ImgBtmBoardCoffee.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Phone's Current Record. View Details for more information", Toast.LENGTH_SHORT).show();
-            }
-        });
+        ImgBtmBoardCoffee.setOnClickListener(v -> Toast.makeText(getApplicationContext(), "Phone's Current Record. View Details for more information", Toast.LENGTH_SHORT).show());
 
         ImageButton ImgBtmBoardLook = findViewById(R.id.imgbtnBoardLook);
-        ImgBtmBoardLook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent iPrev = new Intent(getApplicationContext(), Lookfar_activity.class);
-                startActivity(iPrev);
-                finish();
-            }
-
+        ImgBtmBoardLook.setOnClickListener(v -> {
+            Intent iPrev = new Intent(getApplicationContext(), Lookfar_activity.class);
+            startActivity(iPrev);
+            finish();
         });
 
         ImageButton ImgBtmBoardMusic = findViewById(R.id.imgbtnBoardMusic);
-        ImgBtmBoardMusic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent iPrev = new Intent(getApplicationContext(), ambience.class);
-                startActivity(iPrev);
-                finish();
-            }
+        ImgBtmBoardMusic.setOnClickListener(v -> {
+            Intent iPrev = new Intent(getApplicationContext(), ambience.class);
+            startActivity(iPrev);
+            finish();
         });
 
 
@@ -195,7 +153,6 @@ public class Home extends AppCompatActivity {
                 ETNameHome.clearFocus();
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(ETNameHome.getWindowToken(), 0);
-
                 return true;
             }
             return false;
@@ -207,35 +164,22 @@ public class Home extends AppCompatActivity {
         String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(new Date());
         tvDate.setText(currentDate);
 
-
         //Trivia pop-up dialog
         dlg = new Dialog(this, R.style.PopupDialog);
         BtnTrivia = findViewById(R.id.btnTrivia);
-        BtnTrivia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dlg.setContentView(R.layout.popup);
+        BtnTrivia.setOnClickListener(v -> {
+            dlg.setContentView(R.layout.popup);
 
-                // Find the TextView in the popup layout
-                TextView tvTrivia = dlg.findViewById(R.id.tvQuoteHolder);
+            TextView tvTrivia = dlg.findViewById(R.id.tvQuoteHolder);
 
-                // Get an array of strings from the 'Quotes' string arrayresource
-                String[] quotes = getResources().getStringArray(R.array.QuotesList);
+            String[] quotes = getResources().getStringArray(R.array.QuotesList);
 
-                // Generate a random number between 0 and the length of the quotes array
-                int randomIndex = new Random().nextInt(quotes.length);
+            int randomIndex = new Random().nextInt(quotes.length);
 
-                // Set the random quote to the TextView
-                tvTrivia.setText(quotes[randomIndex]);
-                dlg.show();
-            }
+            tvTrivia.setText(quotes[randomIndex]);
+            dlg.show();
         });
-
     }
-
-
-
-
 
 
     //Set Image Profile
@@ -250,20 +194,18 @@ public class Home extends AppCompatActivity {
         }
 
         if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            // Get the Uri of the selected image
             Uri imageUri = data.getData();
 
             try {
-                // Load the image into a Bitmap
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
 
-                // Crop the image into a circle
+                // Crop image
                 Bitmap circleBitmap = getCircularBitmap(bitmap);
 
-                // Set the cropped image as the new profile image
+                // Set new profile image
                 imgviewProfile.setImageBitmap(circleBitmap);
 
-                // Save the profile image to SharedPreferences
+                // Save profile image
                 saveProfileImage(circleBitmap);
 
             } catch (Exception e) {
@@ -272,13 +214,11 @@ public class Home extends AppCompatActivity {
         }
     }
 
-    //Cut Image in Circle
+    //Cut Image in Circle method
     private Bitmap getCircularBitmap(Bitmap bitmap) {
-        // Crop the bitmap to a square
         int size = Math.min(bitmap.getWidth(), bitmap.getHeight());
         Bitmap squareBitmap = Bitmap.createBitmap(bitmap, (bitmap.getWidth() - size) / 2, (bitmap.getHeight() - size) / 2, size, size);
 
-        // Create a circular bitmap using the cropped bitmap
         Bitmap circleBitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
         BitmapShader shader = new BitmapShader(squareBitmap, BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP);
         Paint paint = new Paint();
@@ -287,19 +227,16 @@ public class Home extends AppCompatActivity {
 
         Canvas canvas = new Canvas(circleBitmap);
         canvas.drawCircle(size / 2f, size / 2f, size / 2f, paint);
-
         return circleBitmap;
     }
 
     //Save Image
     private void saveProfileImage(Bitmap bitmap) {
-        // Convert the Bitmap to a Base64-encoded string
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
         byte[] imageBytes = baos.toByteArray();
         String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
 
-        // Save the encoded image string to SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(PROFILE_IMAGE_KEY, encodedImage);
@@ -307,26 +244,20 @@ public class Home extends AppCompatActivity {
     }
 
     private Bitmap loadProfileImage() {
-        // Load the encoded image string from SharedPreferences
         SharedPreferences sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
         String encodedImage = sharedPreferences.getString(PROFILE_IMAGE_KEY, null);
 
         if (encodedImage != null) {
-            // Decode the Base64-encoded string back to a Bitmap
             byte[] imageBytes = Base64.decode(encodedImage, Base64.DEFAULT);
             Bitmap bitmap = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-
             return bitmap;
         }
-
         return null;
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
-        // Load the profile image from SharedPreferences
         Bitmap profileImage = loadProfileImage();
         if (profileImage != null) {
             imgviewProfile.setImageBitmap(profileImage);
@@ -334,7 +265,6 @@ public class Home extends AppCompatActivity {
     }
 
 
-    //Exit on BackPressed
     @Override
     public void onBackPressed() {
         if (backPressedOnce) {
@@ -345,35 +275,23 @@ public class Home extends AppCompatActivity {
         backPressedOnce = true;
         Toast.makeText(this, "Swipe again to exit", Toast.LENGTH_SHORT).show();
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                backPressedOnce = false;
-            }
-        }, 2000);
-
-
+        new Handler().postDelayed(() -> backPressedOnce = false, 2000);
     }
 
 
     @Override
     protected void onStart() {
-
         //Go to "Previous" Activity
         BtnPrevStats = findViewById(R.id.btnViewDetails);
-        BtnPrevStats.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent iPrev = new Intent(getApplicationContext(), Previous.class);
-                startActivity(iPrev);
-                //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-                iPrev.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                finish();
-            }
+        BtnPrevStats.setOnClickListener(view -> {
+            Intent iPrev = new Intent(getApplicationContext(), Previous.class);
+            startActivity(iPrev);
+            //overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            iPrev.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            finish();
         });
 
         super.onStart();
-
 
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 0);
@@ -391,11 +309,9 @@ public class Home extends AppCompatActivity {
         //FOR NOTIFICATION
         // Check if the permission is granted
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
-            // Permission is granted, proceed with creating the notification
             createNotificationChannel();
 
             //Toast.makeText(getApplicationContext(), String.valueOf(contextNotif), Toast.LENGTH_SHORT).show();
-
 
             String contentText = "";
             String fullContentText = "";
@@ -423,9 +339,8 @@ public class Home extends AppCompatActivity {
             NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
             notificationManager.notify(1, builder.build());
 
-
         } else {
-            // Permission is not granted, request the permission from the user
+            //request the permission from the user
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, PERMISSION_REQUEST_CODE);
         }
     }
@@ -462,26 +377,22 @@ public class Home extends AppCompatActivity {
         return unlockcount;
     }
 
-    //Get Screentime in Home
+    //Get Screen time in Home
     public void screentimeHome() {
         TextView tvScreenTimeHome = findViewById(R.id.tvScreenTimeHoursHome);
 
         Calendar calendar = Calendar.getInstance();
         UsageStatsManager usageStatsManager = (UsageStatsManager) getSystemService(Context.USAGE_STATS_SERVICE);
 
-        // Set the start time to 12:00 AM of the current day
         calendar.set(Calendar.HOUR_OF_DAY, 0);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         long startTime = calendar.getTimeInMillis();
 
-        // Set the end time to the current time
         long endTime = System.currentTimeMillis();
 
-        // Get the app usage statistics for the current day
         List<UsageStats> usageStatsList = usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, startTime, endTime);
 
-        // Calculate the total screen time
         long totalScreenTime = 0;
         for (UsageStats usageStats : usageStatsList) {
             if (usageStats.getLastTimeUsed() >= startTime && usageStats.getLastTimeUsed() <= endTime &&
@@ -489,8 +400,6 @@ public class Home extends AppCompatActivity {
                 totalScreenTime += usageStats.getTotalTimeInForeground();
             }
         }
-
-        // Display the total screen time in the respective TextView
         tvScreenTimeHome.setText(formatScreenTime(totalScreenTime));
     }
 
@@ -500,54 +409,6 @@ public class Home extends AppCompatActivity {
         long minutes = (screenTime % (60 * 60 * 1000)) / (60 * 1000);
         return String.format("%02dhr %02dmin", hours, minutes);
     }
-
-
-/*
-    //NOTIFICATION
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if (requestCode == PERMISSION_REQUEST_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission is granted, proceed with creating the notification
-                createNotificationChannel();
-
-                String contentText;
-                if (contextNotif <= 10) {
-                    contentText = "a";
-                } else if (contextNotif <= 20) {
-                    contentText = "b";
-                } else if (contextNotif <= 30) {
-                    contentText = "c";
-                } else {
-                    contentText = "d";
-                }
-
-                NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "channel_id")
-                        .setSmallIcon(R.drawable.splash_logo)
-                        .setContentTitle("Your Distraction Level")
-                        .setContentText(contentText)
-                        .setPriority(NotificationCompat.PRIORITY_MAX);
-
-                NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
-                if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
-                    return;
-                }
-                notificationManager.notify(1, builder.build());
-            } else {
-                // Permission is not granted, handle the situation
-                Toast.makeText(this, "Permission denied. Unable to create the notification.", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }*/
 
 
     private void createNotificationChannel() {

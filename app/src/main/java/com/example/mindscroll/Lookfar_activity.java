@@ -6,12 +6,9 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,57 +31,47 @@ public class Lookfar_activity extends AppCompatActivity {
             getWindow().getAttributes().layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
         }
 
-        // Set the background to a drawable resource
         getWindow().setBackgroundDrawableResource(R.drawable.hydro_wall);
 
         message();
 
         ImageView BtnLookExit = findViewById(R.id.btnLookExit);
-        BtnLookExit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent iPrev = new Intent(getApplicationContext(), Home.class);
-                startActivity(iPrev);
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-                finish();
-            }
+        BtnLookExit.setOnClickListener(v -> {
+            Intent iPrev = new Intent(getApplicationContext(), Home.class);
+            startActivity(iPrev);
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            finish();
         });
-
     }
 
     private List<Toast> activeToasts = new ArrayList<>();
     public void message() {
         Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Toast toast1 = Toast.makeText(getApplicationContext(), "Look at the image from the side going to the center", Toast.LENGTH_LONG);
-                toast1.show();
-                activeToasts.add(toast1);
+        handler.postDelayed(() -> {
+            Toast toast1 = Toast.makeText(getApplicationContext(), "Look at the image from the side going to the center", Toast.LENGTH_LONG);
+            toast1.show();
+            activeToasts.add(toast1);
 
-                Toast toast2 = Toast.makeText(getApplicationContext(), "Look for 10 seconds. Tap to exit", Toast.LENGTH_SHORT);
-                toast2.show();
-                activeToasts.add(toast2);
-            }
-        }, 500); // Delay for 1 second (1000 milliseconds)
+            Toast toast2 = Toast.makeText(getApplicationContext(), "Look for 10 seconds. Tap to exit", Toast.LENGTH_SHORT);
+            toast2.show();
+            activeToasts.add(toast2);
+        }, 500); // Delay for 1 second
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        // Cancel all active toasts
         for (Toast toast : activeToasts) {
             toast.cancel();
         }
 
-        // Clear the list of active toasts
         activeToasts.clear();
 
     }
 
     @Override
     public void onBackPressed() {
-
+        //do nothing
     }
 
 }

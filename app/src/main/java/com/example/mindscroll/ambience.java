@@ -1,28 +1,17 @@
 package com.example.mindscroll;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ScrollView;
-
 import com.bumptech.glide.Glide;
-
-import java.io.IOException;
-
 
 public class ambience extends AppCompatActivity {
 
@@ -45,7 +34,6 @@ public class ambience extends AppCompatActivity {
             getWindow().getAttributes().layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
         }
 
-        // Set the background to a drawable resource
         getWindow().setBackgroundDrawableResource(R.drawable.musicbg);
 
         ScrollView ScrollView = findViewById(R.id.scrollviewMusic);
@@ -87,7 +75,6 @@ public class ambience extends AppCompatActivity {
         BtnSea.setOnClickListener(new View.OnClickListener() {
             boolean isPlaying = false;
             final MediaPlayer mediaPlayer = mediaPlayers[0];
-            // Use mediaPlayers[0] for the first button
 
             @Override
             public void onClick(View v) {
@@ -115,7 +102,6 @@ public class ambience extends AppCompatActivity {
         BtnNature.setOnClickListener(new View.OnClickListener() {
             boolean isPlaying = false;
             final MediaPlayer mediaPlayer = mediaPlayers[1];
-            // Use mediaPlayers[1] for the second button
 
             @Override
             public void onClick(View v) {
@@ -143,7 +129,6 @@ public class ambience extends AppCompatActivity {
         BtnCity.setOnClickListener(new View.OnClickListener() {
             boolean isPlaying = false;
             final MediaPlayer mediaPlayer = mediaPlayers[2];
-            // Use mediaPlayers[2] for the third button
 
             @Override
             public void onClick(View v) {
@@ -171,7 +156,6 @@ public class ambience extends AppCompatActivity {
         BtnDance.setOnClickListener(new View.OnClickListener() {
             boolean isPlaying = false;
             final MediaPlayer mediaPlayer = mediaPlayers[3];
-            // Use mediaPlayers[3] for the fourth button
 
             @Override
             public void onClick(View v) {
@@ -199,7 +183,6 @@ public class ambience extends AppCompatActivity {
         BtnThunder.setOnClickListener(new View.OnClickListener() {
             boolean isPlaying = false;
             final MediaPlayer mediaPlayer = mediaPlayers[4];
-            // Use mediaPlayers[4] for the fourth button
 
             @Override
             public void onClick(View v) {
@@ -227,7 +210,6 @@ public class ambience extends AppCompatActivity {
         BtnBlizzard.setOnClickListener(new View.OnClickListener() {
             boolean isPlaying = false;
             final MediaPlayer mediaPlayer = mediaPlayers[5];
-            // Use mediaPlayers[5] for the fourth button
 
             @Override
             public void onClick(View v) {
@@ -255,7 +237,6 @@ public class ambience extends AppCompatActivity {
         BtnWildWest.setOnClickListener(new View.OnClickListener() {
             boolean isPlaying = false;
             final MediaPlayer mediaPlayer = mediaPlayers[6];
-            // Use mediaPlayers[6] for the fourth button
 
             @Override
             public void onClick(View v) {
@@ -280,23 +261,19 @@ public class ambience extends AppCompatActivity {
 
 
         ImageButton ImgBtnHomeMusic = findViewById(R.id.imgbtnHomeMusic);
-        ImgBtnHomeMusic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        ImgBtnHomeMusic.setOnClickListener(v -> {
 
-                for (MediaPlayer mp : mediaPlayers) {
-                    if (mp.isPlaying()) {
-                        mp.stop();
-                    }
+            for (MediaPlayer mp : mediaPlayers) {
+                if (mp.isPlaying()) {
+                    mp.stop();
                 }
-
-                Intent iPrevBack = new Intent(getApplicationContext(), Home.class);
-                startActivity(iPrevBack);
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-                finish();
             }
-        });
 
+            Intent iPrevBack = new Intent(getApplicationContext(), Home.class);
+            startActivity(iPrevBack);
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            finish();
+        });
     }
 
 
@@ -308,7 +285,6 @@ public class ambience extends AppCompatActivity {
                 mp.stop();
             }
         }
-
 
         super.onBackPressed();
         Intent iPrevBack = new Intent(getApplicationContext(), Home.class);

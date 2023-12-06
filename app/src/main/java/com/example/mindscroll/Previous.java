@@ -17,12 +17,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.bumptech.glide.Glide;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -33,14 +30,9 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 public class Previous extends AppCompatActivity {
-
-    //TextView tvPrevName;
     ImageButton imgbtnPrevBack;
-
     TextView tvPrevDate;
     TextView[] dateTextViews = new TextView[5];
     TextView[] appTextViews = new TextView[3];
@@ -53,8 +45,6 @@ public class Previous extends AppCompatActivity {
     int color5;
     int color6;
     int color7;
-
-
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP_MR1)
     @Override
@@ -75,15 +65,11 @@ public class Previous extends AppCompatActivity {
             getWindow().getAttributes().layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
         }
 
-        // Set the background to a drawable resource
         getWindow().setBackgroundDrawableResource(R.drawable.a_appbackground);
-
 
         //GIF Hello wave
         ImageView ImgviewPrevHello = findViewById(R.id.imgViewPrevHello);
         Glide.with(this).load(R.drawable.hello).into(ImgviewPrevHello);
-
-
 
         //Get and setting Username
         TextView tvPrevName = findViewById(R.id.tvPrevName);
@@ -91,40 +77,27 @@ public class Previous extends AppCompatActivity {
         String phoneModel = sharedPreferences.getString("phoneModel", "");
         tvPrevName.setText(phoneModel);
 
-
-
         // Get the current date and display it in the TextView
         tvPrevDate = findViewById(R.id.tvprevDate);
         String currentDate = DateFormat.getDateInstance(DateFormat.FULL).format(new Date());
         tvPrevDate.setText(currentDate);
 
-
-
         //On Back Action
         imgbtnPrevBack = findViewById(R.id.imgbtnPrevBack);
-        imgbtnPrevBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent iPrevBack = new Intent(getApplicationContext(), Home.class);
-
-                startActivity(iPrevBack);
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-                iPrevBack.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                finish();
-            }
+        imgbtnPrevBack.setOnClickListener(view -> {
+            Intent iPrevBack = new Intent(getApplicationContext(), Home.class);
+            startActivity(iPrevBack);
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
+            iPrevBack.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            finish();
         });
 
-
-
-        //Initializing Dates on TextViews
-        // Get references to the TextViews for dates
         dateTextViews[0] = findViewById(R.id.tvday3);
         dateTextViews[1] = findViewById(R.id.tvday4);
         dateTextViews[2] = findViewById(R.id.tvday5);
         dateTextViews[3] = findViewById(R.id.tvday6);
         dateTextViews[4] = findViewById(R.id.tvday7);
 
-        // Set the text for each date TextView
         for (int i = 0; i < dateTextViews.length; i++) {
             Calendar calendar = Calendar.getInstance();
             calendar.add(Calendar.DAY_OF_YEAR, -(2 + i)); // subtract 2+i days from today
@@ -135,22 +108,16 @@ public class Previous extends AppCompatActivity {
             dateTextViews[i].setText(date);
         }
 
-
-
-        //Initializing Top 3 most used Apps
-        // Get references to the TextViews for apps
         appTextViews[0] = findViewById(R.id.tvApp1);
         appTextViews[1] = findViewById(R.id.tvApp2);
         appTextViews[2] = findViewById(R.id.tvApp3);
 
         UsageStatsManager usageStatsManager = (UsageStatsManager) getSystemService(Context.USAGE_STATS_SERVICE);
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DAY_OF_WEEK, -1); // get usage stats for the last day
+        calendar.add(Calendar.DAY_OF_WEEK, -1);
 
-        // Sort the usage stats by total time spent in the app
         List<UsageStats> usageStatsList = usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_DAILY, calendar.getTimeInMillis(), System.currentTimeMillis());
 
-        // Use a HashSet to store unique package names and their corresponding usage stats
         HashSet<String> uniquePackages = new HashSet<>();
         List<UsageStats> uniqueUsageStatsList = new ArrayList<>();
 
@@ -162,20 +129,13 @@ public class Previous extends AppCompatActivity {
             }
         }
 
-        // Sort the unique usage stats by total time spent in the app
-        Collections.sort(uniqueUsageStatsList, new Comparator<UsageStats>() {
-            @Override
-            public int compare(UsageStats usageStats1, UsageStats usageStats2) {
-                return Long.compare(usageStats2.getTotalTimeInForeground(), usageStats1.getTotalTimeInForeground());
-            }
-        });
+        Collections.sort(uniqueUsageStatsList, (usageStats1, usageStats2) -> Long.compare(usageStats2.getTotalTimeInForeground(), usageStats1.getTotalTimeInForeground()));
 
-        // Set the text for the app usage TextViews
         for (int i = 0; i < Math.min(3, uniqueUsageStatsList.size()); i++) {
             UsageStats usageStats = uniqueUsageStatsList.get(i);
 
             String appName = getAppNameFromPackage(usageStats.getPackageName());
-            long totalTime = usageStats.getTotalTimeInForeground() / (1000 * 60); // convert to minutes
+            long totalTime = usageStats.getTotalTimeInForeground() / (1000 * 60);
 
             String appUsageText = String.format(Locale.getDefault(), "%02d" + "Hr " + "%02d" + " | " + "%s", totalTime / 60, totalTime % 60, appName);
             appTextViews[i].setText(appUsageText);
@@ -183,7 +143,6 @@ public class Previous extends AppCompatActivity {
     }
 
     //Rename Apps, removes unnecessary texts
-    // Get the app name from the package name
     private String getAppNameFromPackage(String packageName) {
         PackageManager packageManager = getApplicationContext().getPackageManager();
         ApplicationInfo applicationInfo = null;
@@ -231,28 +190,6 @@ public class Previous extends AppCompatActivity {
                 Log.d("App Name Modification", "Removed 'android.' from app name");
             }
 
-            /*
-            // Remove unnecessary text from the app name
-            if (appName.startsWith("com.google.android.")) {
-                appName = appName.substring("com.google.android.".length());
-                Log.d("App Name Modification", "Removed 'com.google.android.' from app name");
-            } else if (appName.startsWith("com.google.")) {
-                appName = appName.substring("com.google.".length());
-                Log.d("App Name Modification", "Removed 'com.google.' from app name");
-            } else if (appName.startsWith("com.app.")) {
-                appName = appName.substring("com.app.".length());
-                Log.d("App Name Modification", "Removed 'com.app.' from app name");
-            } else if (appName.startsWith("com.")) {
-                appName = appName.substring("com.".length());
-                Log.d("App Name Modification", "Removed 'com.' from app name");
-            } else if (appName.startsWith("apps.")) {
-                appName = appName.substring("apps.".length());
-                Log.d("App Name Modification", "Removed 'apps.' from app name");
-            }else if (appName.startsWith("App.rvx.android.")) {
-                appName = appName.substring("App.rvx.android.".length());
-                Log.d("App Name Modification", "Removed 'App.rvx.android.' from app name");
-            }*/
-
             // Remove extra text after the app name
             int dotIndex = appName.lastIndexOf('.');
             if (dotIndex != -1 && dotIndex > 0) {
@@ -260,14 +197,11 @@ public class Previous extends AppCompatActivity {
                 Log.d("App Name Modification", "Removed extra text from app name");
             }
 
-
             //Capitalize first letter
             if (appName.length() > 0) {
                 appName = appName.substring(0, 1).toUpperCase() + appName.substring(1);
             }
-
         } else {
-
 
             if (appName.startsWith("com.google.android.")) {
                 appName = appName.substring("com.google.android.".length());
@@ -304,25 +238,6 @@ public class Previous extends AppCompatActivity {
                 Log.d("App Name Modification", "Removed 'android.' from app name");
             }
 
-            /*
-            // Remove unnecessary text from the app name
-            if (appName.startsWith("com.google.android.")) {
-                appName = appName.substring("com.google.android.".length());
-                Log.d("App Name Modification", "Removed 'com.google.android.' from app name");
-            } else if (appName.startsWith("com.google.")) {
-                appName = appName.substring("com.google.".length());
-                Log.d("App Name Modification", "Removed 'com.google.' from app name");
-            } else if (appName.startsWith("com.app.")) {
-                appName = appName.substring("com.app.".length());
-                Log.d("App Name Modification", "Removed 'com.app.' from app name");
-            } else if (appName.startsWith("com.")) {
-                appName = appName.substring("com.".length());
-                Log.d("App Name Modification", "Removed 'com.' from app name");
-            } else if (appName.startsWith("apps.")) {
-                appName = appName.substring("apps.".length());
-                Log.d("App Name Modification", "Removed 'apps.' from app name");
-            }*/
-
             // Remove extra text after the app name
             int dotIndex = appName.lastIndexOf('.');
             if (dotIndex != -1 && dotIndex > 0) {
@@ -339,7 +254,6 @@ public class Previous extends AppCompatActivity {
     }
 
 
-
     //On Back Action
     public void onBackPressed(){
         Intent slideback = new Intent(this, Home.class);
@@ -348,8 +262,6 @@ public class Previous extends AppCompatActivity {
         slideback.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         finish();
     }
-
-
 
 
     @Override
@@ -373,7 +285,6 @@ public class Previous extends AppCompatActivity {
             calendar.add(Calendar.DAY_OF_YEAR, -1);
             long startTime = calendar.getTimeInMillis();
 
-            // Adjust start time to 12:00 AM
             calendar.set(Calendar.HOUR_OF_DAY, 0);
             calendar.set(Calendar.MINUTE, 0);
             calendar.set(Calendar.SECOND, 0);
@@ -388,7 +299,7 @@ public class Previous extends AppCompatActivity {
                 }
             }
 
-            // Display the total screen time in the respective TextView
+            // Display the total screen time
             switch (i) {
                 case 0:
                     tvScreenTime1.setText(formatScreenTime(totalScreenTime));
@@ -412,12 +323,9 @@ public class Previous extends AppCompatActivity {
                     tvScreenTime7.setText(formatScreenTime(totalScreenTime));
                     break;
             }
-
-
         }
 
 
-        // Calculate and display the total screen time for the current day (from 12am to current time)
         long endTime = System.currentTimeMillis();
         calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 0);
@@ -438,21 +346,6 @@ public class Previous extends AppCompatActivity {
         CalendarCounter();
     }
 
-/*
-    private void setColorIndicator(ImageView imageView, int value) {
-        if (value > 10) {
-            imageView.setImageResource(R.drawable.home_blueindicator);
-        } else if (value > 20) {
-            imageView.setImageResource(R.drawable.home_orangeindicator);
-        } else if (value > 30) {
-            imageView.setImageResource(R.drawable.home_redindicator);
-        } else {
-            imageView.setImageResource(R.drawable.home_greenindicator);
-        }
-    }*/
-
-
-
 
     private String formatScreenTime(long screenTime) {
         long hours = screenTime / (60 * 60 * 1000);
@@ -470,7 +363,6 @@ public class Previous extends AppCompatActivity {
         long start_time = calendar.getTimeInMillis();
         long end_time = System.currentTimeMillis(); // current time
         getdailyUsageStatistics0(start_time, end_time);
-
 
         // Get the unlock count for 2
         calendar.add(Calendar.DAY_OF_MONTH, -1);
@@ -509,12 +401,10 @@ public class Previous extends AppCompatActivity {
         getdailyUsageStatistics6(start_time, end_time);
     }
 
-    //Getting the data for each days
     private int getdailyUsageStatistics0(long start_time, long end_time) {
 
         int unlockcount = 0;
         TextView tvWakeCount = findViewById(R.id.tvWakeCountToday);
-
 
         UsageEvents.Event currentEvent;
 
@@ -532,16 +422,12 @@ public class Previous extends AppCompatActivity {
                     ++unlockcount;
                 }
             }
-
             tvWakeCount.setText(String.valueOf(unlockcount));
             color1 = unlockcount;
-
         } else {
             Toast.makeText(getApplicationContext(), "Could not load data.", Toast.LENGTH_SHORT).show();
         }
-
         return unlockcount;
-
     }
 
     private int getdailyUsageStatistics1(long start_time, long end_time) {
@@ -549,7 +435,6 @@ public class Previous extends AppCompatActivity {
         int unlockcount = 0;
         TextView tvWakeCountDay1 = findViewById(R.id.tvWakeCountDay1);
 
-
         UsageEvents.Event currentEvent;
 
         UsageStatsManager mUsageStatsManager = (UsageStatsManager)
@@ -566,14 +451,11 @@ public class Previous extends AppCompatActivity {
                     ++unlockcount;
                 }
             }
-
             tvWakeCountDay1.setText(String.valueOf(unlockcount));
             color2 = unlockcount;
-
         } else {
             Toast.makeText(getApplicationContext(), "Could not load data.", Toast.LENGTH_SHORT).show();
         }
-
         return unlockcount;
     }
 
@@ -582,7 +464,6 @@ public class Previous extends AppCompatActivity {
         int unlockcount = 0;
         TextView tvWakeCountDay2 = findViewById(R.id.tvWakeCountDay2);
 
-
         UsageEvents.Event currentEvent;
 
         UsageStatsManager mUsageStatsManager = (UsageStatsManager)
@@ -599,14 +480,11 @@ public class Previous extends AppCompatActivity {
                     ++unlockcount;
                 }
             }
-
             tvWakeCountDay2.setText(String.valueOf(unlockcount));
             color3 = unlockcount;
-
         } else {
             Toast.makeText(getApplicationContext(), "Could not load data.", Toast.LENGTH_SHORT).show();
         }
-
         return unlockcount;
     }
 
@@ -615,7 +493,6 @@ public class Previous extends AppCompatActivity {
         int unlockcount = 0;
         TextView tvWakeCountDay3 = findViewById(R.id.tvWakeCountDay3);
 
-
         UsageEvents.Event currentEvent;
 
         UsageStatsManager mUsageStatsManager = (UsageStatsManager)
@@ -632,14 +509,11 @@ public class Previous extends AppCompatActivity {
                     ++unlockcount;
                 }
             }
-
             tvWakeCountDay3.setText(String.valueOf(unlockcount));
             color4 = unlockcount;
-
         } else {
             Toast.makeText(getApplicationContext(), "Could not load data.", Toast.LENGTH_SHORT).show();
         }
-
         return unlockcount;
     }
 
@@ -648,7 +522,6 @@ public class Previous extends AppCompatActivity {
         int unlockcount = 0;
         TextView tvWakeCountDay4 = findViewById(R.id.tvWakeCountDay4);
 
-
         UsageEvents.Event currentEvent;
 
         UsageStatsManager mUsageStatsManager = (UsageStatsManager)
@@ -665,14 +538,11 @@ public class Previous extends AppCompatActivity {
                     ++unlockcount;
                 }
             }
-
             tvWakeCountDay4.setText(String.valueOf(unlockcount));
             color5 = unlockcount;
-
         } else {
             Toast.makeText(getApplicationContext(), "Could not load data.", Toast.LENGTH_SHORT).show();
         }
-
         return unlockcount;
     }
 
@@ -681,7 +551,6 @@ public class Previous extends AppCompatActivity {
         int unlockcount = 0;
         TextView tvWakeCountDay5 = findViewById(R.id.tvWakeCountDay5);
 
-
         UsageEvents.Event currentEvent;
 
         UsageStatsManager mUsageStatsManager = (UsageStatsManager)
@@ -698,14 +567,11 @@ public class Previous extends AppCompatActivity {
                     ++unlockcount;
                 }
             }
-
             tvWakeCountDay5.setText(String.valueOf(unlockcount));
             color6 = unlockcount;
-
         } else {
             Toast.makeText(getApplicationContext(), "Could not load data.", Toast.LENGTH_SHORT).show();
         }
-
         return unlockcount;
     }
 
@@ -714,7 +580,6 @@ public class Previous extends AppCompatActivity {
         int unlockcount = 0;
         TextView tvWakeCountDay6 = findViewById(R.id.tvWakeCountDay6);
 
-
         UsageEvents.Event currentEvent;
 
         UsageStatsManager mUsageStatsManager = (UsageStatsManager)
@@ -731,15 +596,12 @@ public class Previous extends AppCompatActivity {
                     ++unlockcount;
                 }
             }
-
             tvWakeCountDay6.setText(String.valueOf(unlockcount));
             color7 = unlockcount;
             ColorIndicator();
-
         } else {
             Toast.makeText(getApplicationContext(), "Could not load data.", Toast.LENGTH_SHORT).show();
         }
-
         return unlockcount;
     }
 
@@ -823,10 +685,5 @@ public class Previous extends AppCompatActivity {
         } else if (color7 < 10) {
             ImgD7ColorIndicator.setImageResource(R.drawable.home_greenindicator);
         }
-
-
-
     }
-
-
 }
